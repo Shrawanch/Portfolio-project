@@ -7,24 +7,24 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
-  <title>Shrawan's Homepage</title>
+  <title>Shrawan's Blog</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
     }
+  }
   </style>
   <!-- Custom styles for this template -->
   <link href="album.css" rel="stylesheet">
@@ -44,7 +44,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Resume</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
           </li>
         </ul>
@@ -53,33 +53,25 @@
   </header>
 
   <main role="main">
+    <h1 class = "text-center pt-3"> Welcome to my Blog!</h1>
+    <br />
+    <br />
+    <h2 class = "pl-5">Latest Blogs</h2>
+    <hr />
+    <br />
+    <br />
+    {% for blog in blogs.all %}
+    <div class = "pl-5">
+      <a href ="{% url 'detail' blog.id %}"><h3>{{blog.title}}</h3></a>
+      {{blog.pub_date_pretty}}
+      <br />
+      <img class = "img-fluid rounded" src = "{{blog.image.url}}" height=200 width=200 />
+      <br />
+      {{blog.summary}}
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi There! I'm Shrawan Chakradhar</h1>
-        <p class="lead text-muted">Hello, My name is Shrawan Chakradhar. I am currently learning Django to build different websites so that I can make name for myself.</p>
-        <p>
-          <a href="mailto:shrawan.chakradhar1997@gmail.com" class="btn btn-primary my-2">E-mail Me!!</a>
-        </p>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{job.image.url}}" />
-              <div class="card-body">
-                <p class="card-text">{{job.summary}}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
     </div>
+    {% endfor %}
+
 
   </main>
 

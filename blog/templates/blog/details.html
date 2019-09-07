@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
-  <title>Shrawan's Homepage</title>
+  <title>{{ blog.title }}</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <style>
@@ -53,34 +53,15 @@
   </header>
 
   <main role="main">
-
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi There! I'm Shrawan Chakradhar</h1>
-        <p class="lead text-muted">Hello, My name is Shrawan Chakradhar. I am currently learning Django to build different websites so that I can make name for myself.</p>
-        <p>
-          <a href="mailto:shrawan.chakradhar1997@gmail.com" class="btn btn-primary my-2">E-mail Me!!</a>
-        </p>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{job.image.url}}" />
-              <div class="card-body">
-                <p class="card-text">{{job.summary}}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
+    <div class = "pl-5">
+      <h1 class = "pl-5 text-center">{{blog.title}}</h2>
+      <p class="text-center">{{blog.pub_date}}</p>
+      <div class="text-center">
+      <img class = "img-fluid rounded" src = "{{blog.image.url}}"/ height = 200 width = 200>
     </div>
-
+      <br />
+      {{blog.describ}}
+    </div>
   </main>
 
   <footer class="text-muted">
