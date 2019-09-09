@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +43,7 @@
             <a class="nav-link" href="https://www.facebook.com/profile.php?id=100013746300146">Facebook</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Resume</a>
+            <a class="nav-link" href="{% static 'Professional Resume Format Example.pdf' %}">Resume</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
